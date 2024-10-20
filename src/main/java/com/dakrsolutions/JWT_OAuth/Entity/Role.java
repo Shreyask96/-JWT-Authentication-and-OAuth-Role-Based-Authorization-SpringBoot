@@ -5,8 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-
 @Entity
 @Data
 @NoArgsConstructor
@@ -16,7 +14,9 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;                                   // e.g., ROLE_USER or ROLE_ADMIN
+    private String name;     // e.g., ROLE_USER or ROLE_ADMIN
+    
+    
 	public Long getId() {
 		return id;
 	}

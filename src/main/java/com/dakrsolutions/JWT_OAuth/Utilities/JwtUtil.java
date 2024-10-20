@@ -15,7 +15,7 @@ import java.util.function.Function;
 @Component
 public class JwtUtil {
 
-    private String SECRET_KEY = "     ";                                                // Should be from properties
+    private String SECRET_KEY = "";                                                // Should be from properties
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
@@ -49,8 +49,8 @@ public class JwtUtil {
                 .signWith(SignatureAlgorithm.HS256, SECRET_KEY).compact();
     }
 
-    public Boolean validateToken(String token, UserDetails userDetails) {
+    public Boolean validateToken(String token, String string) {
         final String extractedUsername = extractUsername(token);
-        return (extractedUsername.equals(userDetails) && !isTokenExpired(token));
+        return (extractedUsername.equals(string) && !isTokenExpired(token));
     }
 }
